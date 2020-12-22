@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings | Anagrafica</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+	<div align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	<h1>MeetingsApp</h1>
+	<hr>
+	<div class="body-container">
+		
+		<div class="form">
+			<p th:text="${'Select at most ' + session.newMeeting.maxParticipants + ' guests for ' + session.newMeeting.title + ':'}"></p>
+			<form action="#" th:action="@{/CheckInvitations}" method="POST">
+				<fieldset>
+					<table>
+						<tr th:each="username : ${users}">
+							<td><label th:text="${ username }"></label></td>
+							<td><input type="checkbox" th:name="${username}" th:checked="${selected}"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" name="Invite"></td>
+						</tr>
+					</table>
+					<p class="message" th:text=" ${errorMsg}"></p>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

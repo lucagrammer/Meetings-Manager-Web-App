@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<meta charset="ISO-8859-1">
+<title>Meetings | Login</title>
+</head>
+<body>
+	<h1>MeetingsApp</h1>
+	<hr>
+	<div class="body-container">
+		<form action="CheckCredentials" method="POST">
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" name="username" required></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="password" required></td>
+				</tr>
+				<tr>
+					<td colspan="2" ><input type="submit" value="Login"></td>
+				</tr>
+			</table>
+			<p class="message" th:text=" ${errorMsg}"></p>
+		</form>
+	</div>
+</body>
+</html>

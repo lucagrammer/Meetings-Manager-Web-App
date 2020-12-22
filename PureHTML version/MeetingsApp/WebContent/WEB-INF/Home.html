@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings | Home</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+	<div align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	<h1>MeetingsApp</h1>
+	<hr>
+	<div class="body-container">
+		<p th:text="${'Welcome back ' + session.user.name + ' ' + session.user.surname}"></p>
+	
+		<div class="timetable">
+			<p>Upcoming meetings you've been invited to</p>
+			<div class="message" th:if="${#lists.size(invitedMeetings)}==0">No meetings found</div>
+			<table class="fullTable" th:if="${#lists.size(invitedMeetings)}>0">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Duration</th>
+						<th>Creator</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="m : ${invitedMeetings}">
+						<td th:text="${m.title}"></td>
+						<td th:text="${ m.date }"></td>
+						<td th:text="${ m.time }"></td>
+						<td th:text="${ m.duration }"></td>
+						<td th:text="${ m.creator }"></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<p>Upcoming meetings you've convened</p>
+			<div class="message" th:if="${#lists.size(convenedMeetings)}==0">No meetings found</div>
+			<table class="fullTable" th:if="${#lists.size(convenedMeetings)}>0">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Duration</th>
+						<th>Participants</th>
+						<th>Max participants</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="m : ${convenedMeetings}">
+						<td th:text="${m.title}"></td>
+						<td th:text="${ m.date }"></td>
+						<td th:text="${ m.time }"></td>
+						<td th:text="${ m.duration }"></td>
+						<td th:text="${ m.participants }"></td>
+						<td th:text="${ m.maxParticipants }"></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+		</div>
+		
+		<div class="form">
+			<p>Create a new meeting</p>
+			<form action="#" th:action="@{/CheckMeeting}" method="POST">
+				<fieldset>
+					<table>
+						<tr>
+							<td>Title: </td>
+							<td><input type="text" name="title" required /></td>
+						</tr>
+						<tr>
+							<td>Date:</td> 
+							<td><input type="date" name="date"
+								th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"
+								placeholder="yyyy-mm-dd" required /></td>
+						</tr>
+						<tr>
+							<td>Time: </td>
+							<td><input type="time" name="time" placeholder="hh:mm" required /></td>
+						</tr>
+						<tr>
+							<td>Duration (in minutes):</td>
+							<td><input type="number" name="duration" min=1 required /></td>
+						</tr>
+						<tr>
+							<td>Max participants:</td>
+							<td><input type="number" name="maxParticipants" min=1 required /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" name="Create Meeting"></td>
+						</tr>
+					</table>
+					<p class="message" th:text=" ${errorMsg}"></p>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

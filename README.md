@@ -1,4 +1,4 @@
-# Relation Tracker
+# Meetings Manager Web App
 Project for the Web Technologies course at Politecnico di Milano. 
 
 ## The problem

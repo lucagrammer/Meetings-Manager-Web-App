@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings | Home</title>
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="meetingsManager.js" charset="utf-8" defer></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<div align="right">
+		<a href="Logout">Logout</a>
+	</div>
+	<h1>MeetingsApp</h1>
+	<hr>
+	<div class="body-container">
+		<p>Welcome back <span id="username"></span></p>
+	
+		<div class="timetable">
+			<p>Upcoming meetings you've been invited to</p>
+			<div id="invitedMeetingsMessage" class="message"></div>
+			<table class="fullTable" id="invitedMeetings">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Duration</th>
+						<th>Max Participants</th>
+						<th>Creator</th>
+					</tr>
+				</thead>
+				<tbody id="invitedMeetingsBody">
+				</tbody>
+			</table>
+			<hr>
+			<p>Upcoming meetings you've convened</p>
+			<div id="convenedMeetingsMessage" class="message"></div>
+			<table class="fullTable" id="convenedMeetings">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Duration</th>
+						<th>Participants</th>
+						<th>Max participants</th>
+					</tr>
+				</thead>
+				<tbody id="convenedMeetingsBody">
+				</tbody>
+			</table>
+			<hr>
+		</div>
+		
+		<div class="form">
+			<p>Create a new meeting</p>
+			<form id="meetingForm" action="#">
+				<p class="message" id="errorMessage"></p>
+				<fieldset>
+					<table>
+						<tr>
+							<td>Title: </td>
+							<td><input type="text" name="title" required /></td>
+						</tr>
+						<tr>
+							<td>Date:</td> 
+							<td><input type="date" name="date" placeholder="yyyy-mm-dd" required /></td>
+						</tr>
+						<tr>
+							<td>Time: </td>
+							<td><input type="time" name="time" placeholder="hh:mm" required /></td>
+						</tr>
+						<tr>
+							<td>Duration (in minutes):</td>
+							<td><input type="number" name="duration" min=1 required /></td>
+						</tr>
+						<tr>
+							<td>Max participants:</td>
+							<td><input type="number" name="maxParticipants" min=1 required /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="button" class="next" value="Next" name="Next"></td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<div id="usersList"></div>
+					<input type="button" class="prev" value="Edit Meeting" name="Edit Meeting">
+					<input type="button" class="cancel" value="Cancel Meeting" name="Cancel Meeting">
+					<input type="button" class="submit" value="Create Meeting" name="Create Meeting">
+				</fieldset>
+				
+			</form>
+		</div>
+	</div>
+</body>
+</html>

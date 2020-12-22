@@ -1,0 +1,71 @@
+body{
+	font-family: Verdana;
+	text-align:center;
+	font-size:15px;
+}
+
+table{
+	border: 0px solid white;
+	display: inline;
+}
+
+.fullTable{
+	min-width: 80vw;
+	display: inline-table;
+}
+
+fieldset td{
+	text-align:right;
+}
+
+th {
+	border: 2px solid black;
+}
+
+h1{
+	font-size: 50px;
+	text-align: center;
+	margin-bottom:50px;
+}
+
+.body-container{
+	text-align: center;
+	align-content: center;
+	margin: 30px;
+}
+
+.form{
+	display: inline-block;
+	min-width: 80vw;
+	margin-top: 30px;
+}
+
+.form>p{
+	font-size:20px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.timetable{
+	display: inline-block;
+}
+
+.timetable p{
+	font-size:25px;
+	font-weight: bold;
+}
+
+.message{
+	font-style: italic;
+	color: red;
+	font-size:13px;
+}
+
+.timetable .message{
+	color: grey;
+}
+
+.changeView{
+	font-style: italic;
+	text-decoration: underline;
+}

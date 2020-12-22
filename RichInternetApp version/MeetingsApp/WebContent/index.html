@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="accountManager.js" charset="utf-8" defer></script>
+<meta charset="ISO-8859-1">
+<title>Meetings | Login</title>
+</head>
+<body>
+	<h1>MeetingsApp</h1>
+	<hr>
+	<div class="body-container">
+		<form id="loginForm" action="#">
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" name="username" required></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="password" required></td>
+				</tr>
+				<tr>
+					<td colspan="2" ><input class="submit" type="button" value="Sign in"></td>
+				</tr>
+			</table>
+			<p class="changeView">Don't have an account? Sign up</p>
+			<p class="message errorMessage"></p>
+		</form>		
+		
+		<form id="registerForm" action="#" autocomplete="off">
+			<p class="changeView">Have an account? Sign in</p>
+			<p class="message errorMessage"></p>
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" name="username" required></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" required></td>
+				</tr>
+				<tr>
+					<td>Surname:</td>
+					<td><input type="text" name="surname" required></td>
+				</tr>
+				<tr>
+					<td>Mail:</td>
+					<td><input type="email" name="email" required></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="password" minlength="4" autocomplete="new-password" required></td>
+				</tr>
+				<tr>
+					<td>Repeat password:</td>
+					<td><input type="password" name="passwordR" minlength="4" required></td>
+				</tr>
+				<tr>
+					<td colspan="2" ><input class="submit" type="button" value="Sign up"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
